@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <strong>Set List: </strong>
+  <%= @set_list.name %>
+</h2>
+
+<p>
+  <strong>Description:</strong>
+  <%= @set_list.description %>
+</p>
+
+<p>
+  <strong>Gig date:</strong>
+  <%= @set_list.gig_date %>
+</p>
+
+<%= link_to 'Edit', edit_set_list_path(@set_list) %> | <%= link_to 'Back',
+set_lists_path %>
+
+
+<p style="margin-top:50px">
+	<h2>Songs</h2>
+	<%= link_to 'Add Song',  new_song_path(:set_list_id => @set_list.id) %>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Notes</th>
+			<th>Duration</th>
+			<th>Updated At</th>
+		</tr>
+
+  <% @songs.each do |s| %> 
+  <tr>
+  	<td><%= link_to s.name, s %> </td>
+  	<td><%= s.notes %></td>
+  	<td><%= s.duration %></td>
+  	<td><%= s.updated_at %></td>
+  </tr>
+  <% end %>
+</p>
+
+
+
